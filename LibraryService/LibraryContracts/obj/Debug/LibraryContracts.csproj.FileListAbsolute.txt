@@ -1,0 +1,9 @@
+E:\My Programs\C#\Final\LibraryService\LibraryContracts\bin\Debug\LibraryContracts.dll
+E:\My Programs\C#\Final\LibraryService\LibraryContracts\bin\Debug\LibraryContracts.pdb
+E:\My Programs\C#\Final\LibraryService\LibraryContracts\obj\Debug\LibraryContracts.csprojResolveAssemblyReference.cache
+E:\My Programs\C#\Final\LibraryService\LibraryContracts\obj\Debug\LibraryContracts.dll
+E:\My Programs\C#\Final\LibraryService\LibraryContracts\obj\Debug\LibraryContracts.pdb
+E:\My Programs\C#\Final\LibraryService\LibraryContracts\bin\Debug\itextsharp.dll
+E:\My Programs\C#\Final\LibraryService\LibraryContracts\bin\Debug\itextsharp.pdfa.dll
+E:\My Programs\C#\Final\LibraryService\LibraryContracts\bin\Debug\itextsharp.xtra.dll
+E:\My Programs\C#\Final\LibraryService\LibraryContracts\bin\Debug\itextsharp.xml

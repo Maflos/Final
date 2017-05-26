@@ -1,0 +1,12 @@
+E:\My Programs\C#\Final\LibraryService\LibraryService\bin\Debug\LibraryService.exe.config
+E:\My Programs\C#\Final\LibraryService\LibraryService\bin\Debug\LibraryService.exe
+E:\My Programs\C#\Final\LibraryService\LibraryService\bin\Debug\LibraryService.pdb
+E:\My Programs\C#\Final\LibraryService\LibraryService\bin\Debug\LibraryContracts.dll
+E:\My Programs\C#\Final\LibraryService\LibraryService\bin\Debug\LibraryContracts.pdb
+E:\My Programs\C#\Final\LibraryService\LibraryService\obj\Debug\LibraryService.csprojResolveAssemblyReference.cache
+E:\My Programs\C#\Final\LibraryService\LibraryService\obj\Debug\LibraryService.exe
+E:\My Programs\C#\Final\LibraryService\LibraryService\obj\Debug\LibraryService.pdb
+E:\My Programs\C#\Final\LibraryService\LibraryService\bin\Debug\EntityFramework.dll
+E:\My Programs\C#\Final\LibraryService\LibraryService\bin\Debug\EntityFramework.xml
+E:\My Programs\C#\Final\LibraryService\LibraryService\bin\Debug\itextsharp.dll
+E:\My Programs\C#\Final\LibraryService\LibraryService\bin\Debug\itextsharp.xml

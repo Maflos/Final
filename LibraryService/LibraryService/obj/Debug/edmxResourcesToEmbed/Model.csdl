@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="libraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="author">
+    <Key>
+      <PropertyRef Name="authorID" />
+    </Key>
+    <Property Name="authorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="authorName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="book">
+    <Key>
+      <PropertyRef Name="bookID" />
+    </Key>
+    <Property Name="bookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bookName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="authorName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="readbook" Relationship="Self.FK_BookID" FromRole="book" ToRole="readbook" />
+    <NavigationProperty Name="wishlist" Relationship="Self.FK_BookID1" FromRole="book" ToRole="wishlist" />
+  </EntityType>
+  <EntityType Name="readbook">
+    <Key>
+      <PropertyRef Name="readBookID" />
+    </Key>
+    <Property Name="readBookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="bookID" Type="Int32" Nullable="false" />
+    <Property Name="rating" Type="Int32" Nullable="false" />
+    <Property Name="review" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="book" Relationship="Self.FK_BookID" FromRole="readbook" ToRole="book" />
+    <NavigationProperty Name="user" Relationship="Self.FK_UserID" FromRole="readbook" ToRole="user" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="type" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="readbook" Relationship="Self.FK_UserID" FromRole="user" ToRole="readbook" />
+    <NavigationProperty Name="wishlist" Relationship="Self.FK_UserID1" FromRole="user" ToRole="wishlist" />
+  </EntityType>
+  <EntityType Name="wishlist">
+    <Key>
+      <PropertyRef Name="wishlistID" />
+    </Key>
+    <Property Name="wishlistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="bookID" Type="Int32" />
+    <NavigationProperty Name="book" Relationship="Self.FK_BookID1" FromRole="wishlist" ToRole="book" />
+    <NavigationProperty Name="user" Relationship="Self.FK_UserID1" FromRole="wishlist" ToRole="user" />
+  </EntityType>
+  <Association Name="FK_BookID">
+    <End Role="book" Type="Self.book" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="readbook" Type="Self.readbook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book">
+        <PropertyRef Name="bookID" />
+      </Principal>
+      <Dependent Role="readbook">
+        <PropertyRef Name="bookID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookID1">
+    <End Role="book" Type="Self.book" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book">
+        <PropertyRef Name="bookID" />
+      </Principal>
+      <Dependent Role="wishlist">
+        <PropertyRef Name="bookID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserID">
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="readbook" Type="Self.readbook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="readbook">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserID1">
+    <End Role="user" Type="Self.user" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="wishlist">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="libraryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="author" EntityType="Self.author" />
+    <EntitySet Name="book" EntityType="Self.book" />
+    <EntitySet Name="readbook" EntityType="Self.readbook" />
+    <EntitySet Name="user" EntityType="Self.user" />
+    <EntitySet Name="wishlist" EntityType="Self.wishlist" />
+    <AssociationSet Name="FK_BookID" Association="Self.FK_BookID">
+      <End Role="book" EntitySet="book" />
+      <End Role="readbook" EntitySet="readbook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookID1" Association="Self.FK_BookID1">
+      <End Role="book" EntitySet="book" />
+      <End Role="wishlist" EntitySet="wishlist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserID" Association="Self.FK_UserID">
+      <End Role="user" EntitySet="user" />
+      <End Role="readbook" EntitySet="readbook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserID1" Association="Self.FK_UserID1">
+      <End Role="user" EntitySet="user" />
+      <End Role="wishlist" EntitySet="wishlist" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

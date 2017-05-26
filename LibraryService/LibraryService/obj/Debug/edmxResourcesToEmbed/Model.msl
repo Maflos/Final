@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="libraryModelStoreContainer" CdmEntityContainer="libraryEntities">
+    <EntitySetMapping Name="author">
+      <EntityTypeMapping TypeName="libraryModel.author">
+        <MappingFragment StoreEntitySet="author">
+          <ScalarProperty Name="authorID" ColumnName="authorID" />
+          <ScalarProperty Name="authorName" ColumnName="authorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="book">
+      <EntityTypeMapping TypeName="libraryModel.book">
+        <MappingFragment StoreEntitySet="book">
+          <ScalarProperty Name="bookID" ColumnName="bookID" />
+          <ScalarProperty Name="bookName" ColumnName="bookName" />
+          <ScalarProperty Name="authorName" ColumnName="authorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="readbook">
+      <EntityTypeMapping TypeName="libraryModel.readbook">
+        <MappingFragment StoreEntitySet="readbook">
+          <ScalarProperty Name="readBookID" ColumnName="readBookID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="bookID" ColumnName="bookID" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="review" ColumnName="review" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="libraryModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wishlist">
+      <EntityTypeMapping TypeName="libraryModel.wishlist">
+        <MappingFragment StoreEntitySet="wishlist">
+          <ScalarProperty Name="wishlistID" ColumnName="wishlistID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="bookID" ColumnName="bookID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
